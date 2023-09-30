@@ -1,14 +1,18 @@
 /**
  * @author Ruben Perblac
- * @description Capitaliza la primera letra de cada palabra
+ * @description Capitaliza la primera letra de cada palabra de una cadena dada
  */
 
+/**
+ * 
+ * @param string cadena 
+ * @returns string
+ */
 const capitalizarPalabras = (cadena) => {
-    let palabras = cadena.split(' ');
-    let array = [];
+    const palabras = cadena.split(' ');
+    const resultado = [];
     for (let palabra of palabras) {
-        palabra[0] = String(palabra[0]).toUpperCase[0];
-        array.push(palabra.length > 1?:);
+     resultado.push(String(palabra[0]).toUpperCase() + palabra.slice(1));
     }
-    return array.join(' ');
-};
+    return resultado.join(' ');
+  }
