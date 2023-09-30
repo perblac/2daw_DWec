@@ -4,15 +4,15 @@
  */
 
 /**
- * 
- * @param string cadena 
+ *
+ * @param string cadena
  * @returns string
  */
 const capitalizarPalabras = (cadena) => {
-    const palabras = cadena.split(' ');
-    const resultado = [];
-    for (let palabra of palabras) {
-     resultado.push(String(palabra[0]).toUpperCase() + palabra.slice(1));
-    }
-    return resultado.join(' ');
+  const palabras = cadena.split(" ");
+  const resultado = [];
+  for (let palabra of palabras) {
+    resultado.push(String(palabra[0]).toUpperCase() + palabra.slice(1));
   }
+  return resultado.join(" ");
+};
