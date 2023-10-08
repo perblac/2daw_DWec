@@ -5,6 +5,12 @@
  *  son números para realizar la multiplicación.
  */
 
+/**
+ * 
+ * @param {object} a 
+ * @param {number} b 
+ * @returns object
+ */
 function multiplicaPorNumero(a,b) {
     for (let clave in a) {
         if (typeof a[clave] == 'number') {

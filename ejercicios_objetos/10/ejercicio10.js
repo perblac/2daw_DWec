@@ -4,6 +4,11 @@
  * del objeto original. excepto la propiedad con clave 'b'
  */
 
+/**
+ * 
+ * @param {object} objeto 
+ * @returns object
+ */
 function todoMenosB(objeto) {
   const resultado = {};
   Object.assign(resultado, objeto);

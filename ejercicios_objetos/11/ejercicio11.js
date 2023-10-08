@@ -6,6 +6,12 @@
  *  'a', 'b', 'c', 'd' y 'e'.
  */
 
+/**
+ * 
+ * @param {object} obj1 
+ * @param {object} obj2 
+ * @returns object
+ */
 function fusionaObjetos(obj1,obj2) {
     const resultado = {};
     obj2.b = obj2.d;

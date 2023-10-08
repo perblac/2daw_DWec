@@ -4,6 +4,11 @@
  *  objeto. Validar que los valores de las claves son números para realizar la suma.
  */
 
+/**
+ * 
+ * @param {object} a 
+ * @returns number
+ */
 function sumaTemperaturas(a) {
   let suma = 0;
   for (let temperatura of Object.values(a)) {

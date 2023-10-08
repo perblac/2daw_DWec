@@ -4,6 +4,12 @@
  *  propiedad con la clave 'a' y un valor de 'b'. Devuelve el objeto.
  */
 
+/**
+ * 
+ * @param {string} a 
+ * @param {string} b 
+ * @returns object
+ */
 function creaPar(a, b) {
   let result = {};
   result[a] = b;

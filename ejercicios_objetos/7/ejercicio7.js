@@ -4,6 +4,11 @@
  *  las claves de los objetos.
  */
 
+/**
+ * 
+ * @param {object} a 
+ * @returns array
+ */
 function devuelveClaves(a) {
   const result = [];
   for (let clave in a) {

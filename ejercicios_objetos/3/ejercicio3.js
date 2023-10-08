@@ -5,6 +5,12 @@
  *  no debe ser nulo, indefinido o falso. Devuelve falso en caso contrario.
  */
 
+/**
+ * 
+ * @param {object} a 
+ * @param {string} b 
+ * @returns boolean
+ */
 function tieneTrue(a, b) {
   return b in a && a[b] == true;
 }

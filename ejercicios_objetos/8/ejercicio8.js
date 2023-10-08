@@ -5,6 +5,11 @@
  *  objeto 'a' en caso de que exista. Si no existe devolverá undefined
  */
 
+/**
+ * 
+ * @param {object} objeto 
+ * @returns string
+ */
 function sacaPropiedadBdeA(objeto) {
     let resultado = objeto.a ?? undefined;
     return resultado;

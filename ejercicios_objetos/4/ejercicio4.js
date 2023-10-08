@@ -4,6 +4,11 @@
  * con la clave 'key' y un valor igual a la cadena. Devuelve el objeto.
  */
 
+/**
+ * 
+ * @param {string} cadena 
+ * @returns object
+ */
 function creaValor(cadena) {
     return { key: cadena};
 }

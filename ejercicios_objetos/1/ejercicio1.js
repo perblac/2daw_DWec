@@ -5,6 +5,11 @@
 
 // Objeto: { continente: "Europa", pais: "España"}
 
+/**
+ * 
+ * @param {object} param0 
+ * @returns string
+ */
 function dePais({ pais = "No se encuentra" }) {
   return pais;
 }
