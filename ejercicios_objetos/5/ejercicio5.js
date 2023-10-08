@@ -11,7 +11,5 @@
  * @returns object
  */
 function creaPar(a, b) {
-  let result = {};
-  result[a] = b;
-  return result;
+  return { [a]: b }
 }

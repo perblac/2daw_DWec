@@ -5,15 +5,29 @@
  */
 
 /**
- * 
- * @param {object} objeto 
+ *
+ * @param {object} objeto
  * @returns object
  */
+const empty2null = (objeto) =>
+  Object.fromEntries(
+    Object.entries(objeto).map((tupla) => [
+      tupla[0],
+      typeof tupla[1] == "string"
+        ? tupla[1].trim() === ""
+          ? null
+          : tupla[1]
+        : tupla[1],
+    ])
+  );
+
+/*
 function empty2null(objeto) {
-    const result = [];
+    const result = {};
     Object.assign(result,objeto);
-    for (let [cadena, index] of result) {
-        result[index] = (cadena.trim()==='')?null:cadena;
+    for (let [clave, valor] of Object.entries(result)) {
+        result[clave] = (typeof valor == 'string')?(valor.trim()==='')?null:valor:valor;
     }
     return result;
 }
+*/

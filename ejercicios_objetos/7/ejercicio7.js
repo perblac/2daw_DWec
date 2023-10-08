@@ -9,6 +9,9 @@
  * @param {object} a 
  * @returns array
  */
+const devuelveClaves = (a) => Object.keys(a);
+
+/*
 function devuelveClaves(a) {
   const result = [];
   for (let clave in a) {
@@ -16,3 +19,4 @@ function devuelveClaves(a) {
   }
   return result;
 }
+*/

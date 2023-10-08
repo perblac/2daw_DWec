@@ -5,15 +5,20 @@
  */
 
 /**
- * 
- * @param {array} a 
- * @param {array} b 
+ *
+ * @param {array} a
+ * @param {array} b
  * @returns object
  */
+
+const creaDesdeArrays = (a, b) =>
+  Object.fromEntries(a.map((valorA, indice) => [ valorA, b[ indice ] ]));
+/*
 function creaDesdeArrays(a,b) {
     const result = {};
     for (let indice in a) {
-        result[a[indice]] = b[indice];
+        result[ a[ indice ] ] = b[ indice ];
     }
     return result;
 }
+*/

@@ -6,11 +6,19 @@
  */
 
 /**
- * 
- * @param {object} a 
- * @param {number} b 
+ *
+ * @param {object} a
+ * @param {number} b
  * @returns object
  */
+const multiplicaPorNumero = (a, b) =>
+  Object.fromEntries(
+    Object.entries(a).map((num) =>
+      typeof num[1] == "number" ? [num[0], num[1] * b] : [num[0], num[1]]
+    )
+  );
+
+/*
 function multiplicaPorNumero(a,b) {
     for (let clave in a) {
         if (typeof a[clave] == 'number') {
@@ -19,3 +27,4 @@ function multiplicaPorNumero(a,b) {
     }
     return a;
 }
+*/

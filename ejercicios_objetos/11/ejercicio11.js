@@ -14,8 +14,8 @@
  */
 function fusionaObjetos(obj1,obj2) {
     const resultado = {};
-    obj2.b = obj2.d;
-    delete obj2.d;
+    obj2.d = obj2.b;
+    delete obj2.b;
     Object.assign(resultado, obj1, obj2);    
     return resultado;
 }

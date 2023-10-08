@@ -10,5 +10,5 @@
  * @returns object
  */
 function creaValor(cadena) {
-    return { key: cadena};
+    return { key: cadena };
 }

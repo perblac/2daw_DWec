@@ -5,10 +5,17 @@
  */
 
 /**
- * 
- * @param {object} a 
+ *
+ * @param {object} a
  * @returns number
  */
+const sumaTemperaturas = (a) =>
+  Object.values(a).reduce(
+    (ac, temp) => (typeof temp == "number" ? ac + temp : ac),
+    0
+  );
+
+/*
 function sumaTemperaturas(a) {
   let suma = 0;
   for (let temperatura of Object.values(a)) {
@@ -16,3 +23,4 @@ function sumaTemperaturas(a) {
   }
   return suma;
 }
+*/
