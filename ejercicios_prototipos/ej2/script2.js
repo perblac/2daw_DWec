@@ -1,18 +1,11 @@
 
 /* -------------------------------- importar -------------------------------- */
-import { ComidaClass as Comida, DietaClass as Dieta } from "./assets/modules.js";
+import { ComidaFunction as Comida, DietaFunction as Dieta } from "./assets/modules.js";
 /* --------------------------- declarar variables --------------------------- */
-// const dieta = new Dieta();
-// const tomate = new Comida('tomate', 50);
-// const queso = new Comida('queso', 100);
-// dieta.agregarAlimento(tomate);
-// dieta.agregarAlimento(queso);
-// dieta.listarAlimentosConsumidos(),
-// console.log("total:", dieta.calcularTotalCalorias());
-// console.log(typeof tomate);
 const alimentoFrm = document.getElementById('alimento');
 const caloriasFrm = document.getElementById('calorias')
 let dieta = null;
+
 /* -------------------------------- funciones ------------------------------- */
 function handlerCreateDiet(e) {
     e.preventDefault();

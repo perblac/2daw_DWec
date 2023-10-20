@@ -1,22 +1,15 @@
 
 /* -------------------------------- importar -------------------------------- */
-import { ComidaClass as Comida, DietaClass as Dieta } from "./assets/modules.js";
+import { ComidaLiteral as Comida, DietaLiteral as Dieta } from "./assets/modules.js";
 /* --------------------------- declarar variables --------------------------- */
-// const dieta = new Dieta();
-// const tomate = new Comida('tomate', 50);
-// const queso = new Comida('queso', 100);
-// dieta.agregarAlimento(tomate);
-// dieta.agregarAlimento(queso);
-// dieta.listarAlimentosConsumidos(),
-// console.log("total:", dieta.calcularTotalCalorias());
-// console.log(typeof tomate);
 const alimentoFrm = document.getElementById('alimento');
 const caloriasFrm = document.getElementById('calorias')
 let dieta = null;
+
 /* -------------------------------- funciones ------------------------------- */
 function handlerCreateDiet(e) {
     e.preventDefault();
-    dieta = new Dieta();
+    dieta = Object.create(Dieta);
     document.getElementById('formAlimentos').style.display = 'block';
     document.getElementById('crearDieta').setAttribute('disabled',1 );
 }
@@ -33,7 +26,9 @@ function handlerEat(e) {
             document.getElementById('mensajeError').style.value = 'none';
         }, 5000);
     } else {
-        let comida = new Comida(alimento,parseInt(calorias));
+        let comida = Object.create(Comida)
+        comida.nombre = alimento;
+        comida.calorias = parseInt(calorias);
         dieta.agregarAlimento(comida);
         document.getElementById('mensajeError').style.display = 'none';
         document.getElementById('mensajeExito').innerHTML = `¡Ñam! +1 ${comida.nombre}`;
