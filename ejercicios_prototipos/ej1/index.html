@@ -2,13 +2,13 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 1: Tienda de libros</title>
   </head>
   <body>
@@ -22,22 +22,57 @@
           <form action="" class="entradaDatos">
             <div class="mb-3">
               <label for="title">Título</label>
-              <input type="text" class="form-control" id="title">
+              <input type="text" class="form-control" id="title" required>
             </div>
             <div class="mb-3">
               <label for="author">Autor</label>
-              <input type="text" class="form-control" id="author">
+              <input type="text" class="form-control" id="author" required>
             </div>
             <div class="mb-3">
               <label for="price">Precio</label>
-              <input type="number" class="form-control" id="price">
+              <input type="number" class="form-control" id="price" step="0.01" required>
             </div>
-            <button class="btn btn-primary" id="guardarLibro">Guardar</button>
+            <button class="btn btn-primary" id="guardarLibro">Agregar Libro</button>
+          </form>
+          <div class="alert alert-danger mt-3" id="errorGuardar" style="display:none">
+            Ese título ya existe
+          </div>
+          <div class="alert alert-warning mt-3" id="falloGuardar" style="display:none">
+            Introduzca título, autor y precio
+          </div>
+          <div class="alert alert-success mt-3" id="exitoGuardar" style="display:none">
+            Libro añadido con éxito
+          </div>
+        </div>
+        <div class="col-md-6 px-4">
+          <h2 class="m-3">Borrado de libros</h2>
+          <form action="" class="borradoDatos">
+            <div class="mb-3">
+              <label for="titleDelete">Título a borrar</label>
+              <input type="text" class="form-control" id="titleDelete">
+            </div>
+            <button class="btn btn-primary" id="borrarLibro">Eliminar Libro</button>
+          </form>
+          <div class="alert alert-danger mt-3" id="errorBorrar" style="display:none">
+            No se encuentra ese título
+          </div>
+          <div class="alert alert-success mt-3" id="exitoBorrar" style="display:none">
+            Libro eliminado con éxito
+          </div>
+          <h2 class="m-3">Calcular precio de todos los libros</h2>
+          <form action="" class="calculoPrecio">
+            <div class="mb-3">
+              <button class="btn btn-primary" id="calcularPrecios">Calcular Precios</button>
+              <textarea name="areaPrecios" id="areaPrecios" cols="30" rows="10" class="form-control" disabled></textarea>
+            </div>
           </form>
         </div>
       </div>
     </div>
-    <script type="module" src="/script.js"></script>
+
+    <!-- <script type="module" src="/script.js"></script> -->
+    <script type="module" src="/script2.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

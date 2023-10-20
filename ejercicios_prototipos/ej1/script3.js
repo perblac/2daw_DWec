@@ -1,9 +1,10 @@
 /* -------------------------------------------------------------------------- */
-/*                         implementación usando Class                        */
+/*                    implementación usando Objeto Literal                    */
 /* -------------------------------------------------------------------------- */
 
+
 /* -------------------------------- importar -------------------------------- */
-import { LibroClass as Libro } from "./assets/modules.js";
+import { LibroLiteral as Libro } from "./assets/modules.js";
 /* -------------------------- declaracion variables ------------------------- */
 const exitoG = document.getElementById('exitoGuardar');
 const errorG = document.getElementById('errorGuardar');
@@ -33,7 +34,10 @@ function handlerSaveBook(e) {
         }, 5000);
     } else {
         if (indice < 0) {
-            let newLibro = new Libro(tituloFrm, autorFrm, precioFrm);
+            const newLibro = Object.create(Libro);
+            newLibro.titulo = tituloFrm;
+            newLibro.autor = autorFrm;
+            newLibro.precio = precioFrm;
             libros.push(newLibro);    
             localStorage.setItem('datosLibros', JSON.stringify(libros));
             // guardado correcto

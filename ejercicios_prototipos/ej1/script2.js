@@ -1,9 +1,9 @@
 /* -------------------------------------------------------------------------- */
-/*                         implementación usando Class                        */
+/*                 implementación usando Función Constructora                 */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------- importar -------------------------------- */
-import { LibroClass as Libro } from "./assets/modules.js";
+import { LibroFunction as Libro } from "./assets/modules.js";
 /* -------------------------- declaracion variables ------------------------- */
 const exitoG = document.getElementById('exitoGuardar');
 const errorG = document.getElementById('errorGuardar');

@@ -1,51 +1,47 @@
 // usando class:
 // para crear -> const object = new LibroClass()
 export class LibroClass {
-    #titulo;
-    #autor;
-    #precio;
+    // #titulo;
+    // #autor;
+    // #precio;
+    _titulo;
+    _autor;
+    _precio;
 
     constructor(titulo,autor,precio) {
-        this.#titulo = titulo;
-        this.#autor = autor;
-        this.#precio = precio;
+        this._titulo = titulo;
+        this._autor = autor;
+        this._precio = precio;
     }
     
     get titulo() {
-        return this.#titulo;
+        return this._titulo;
     }
     set titulo(nuevoTitulo) {
-        this.#titulo = nuevoTitulo;
+        this._titulo = nuevoTitulo;
     }
 
     get autor() {
-        return this.#autor;
+        return this._autor;
     }
     set autor(nuevoAutor) {
-        this.#autor = nuevoAutor;
+        this._autor = nuevoAutor;
     }
 
     get precio() {
-        return this.#precio;
+        return this._precio;
     }
     set precio(nuevoPrecio) {
-        this.#precio = nuevoPrecio;
+        this._precio = nuevoPrecio;
     }
 }
 
 // usando función constructora:
-// para crear -> const object = new LibroFunction()
-//               object.init(titulo,autor,precio)
-export function LibroFunction() {
-    let _titulo,
-        _autor,
-        _precio;
-    // metodo de inicializacion, en vez de parametros de entrada:
-    init = function(titulo,autor,precio) {
-        this._titulo = titulo;
-        this._autor = autor;
-        this._precio = precio;
-    };
+// para crear -> const object = new LibroFunction(titulo,autor,precio)
+export function LibroFunction(titulo,autor,precio) {
+    this._titulo = titulo;
+    this._autor = autor;
+    this._precio = precio;
     Object.defineProperty(this,'titulo',{
         get: function() {
             return this._titulo;
