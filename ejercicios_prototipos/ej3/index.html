@@ -6,17 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <title>Simulador de Vehículos 🚗</title>
+    <title>🛵 Simulador de Vehículos 🚗</title>
   </head>
   <body>
     <div id="container">
       <div class="row">
-        <h1 class="bg-primary text-center text-white p-3">🚗</h1>
-        <input type="range" min="1" max="100" value="50" class="slider-pic-car" id="id3">
+          <h1 class="bg-primary text-center text-white pb-4 mb-3 pt-4">🚗🛵</h1>
+          <div class="col-md-6">
+            <form action="" class="border px-3 mx-3 mb-3" id="cocheFrm">
+              <label for="marcaCoche" class="form-class mt-3 mb-3">Marca</label>
+              <input type="text" class="form-class" id="marcaCoche"><br>
+              <label for="modeloCoche" class="form-class mb-3">Modelo</label>
+              <input type="text" class="form-class" id="modeloCoche"><br>
+              <label for="añoCoche" class="form-class mb-3">Año</label>
+              <input type="number" class="form-class" id="añoCoche" min="1900">
+            </form>
+            <button class="btn btn-primary mx-3 mb-3" id="crearCoche">Crear Coche</button>
+            <div class="alert alert-danger" style="display: inline;" id="errorCoche">Error al crear el Coche</div>
+            <div class="alert alert-success" style="display: inline;" id="exitoCoche">Coche creado</div><br>
+            <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarCoche" disabled>Arrancar</button>
+            <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarCoche" disabled>Acelerar</button>
+            <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarCoche" disabled>Frenar</button>
+          </div>
+          <div class="col-md-6">
+            <form action="" class="border px-3 mx-3 mb-3" id="motoFrm">
+              <label for="marcaMoto" class="form-class mt-3 mb-3">Marca</label>
+              <input type="text" class="form-class" id="marcaMoto"><br>
+              <label for="modeloMoto" class="form-class mb-3">Modelo</label>
+              <input type="text" class="form-class" id="modeloMoto"><br>
+              <label for="añoMoto" class="form-class mb-3">Año</label>
+              <input type="number" class="form-class" id="añoMoto" min="1900">
+            </form>
+            <button class="btn btn-primary mx-3 mb-3" id="crearMoto">Crear Moto</button>
+            <div class="alert alert-danger" style="display: inline;" id="errorMoto">Error al crear la Moto</div>
+            <div class="alert alert-success" style="display: inline;" id="exitoMoto">Coche creado</div><br>
+            <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarMoto" disabled>Arrancar</button>
+            <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarMoto" disabled>Acelerar</button>
+            <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarMoto" disabled>Frenar</button>
+          </div>
+          <div>
+            <img src="./car.png" alt="car" id="spriteCoche" style="position: absolute;left: 10px;top: 400px;width: 64px;height: auto;"/>
+          </div>
+          <div>
+            <img src="./moto.png" alt="moto" id="spriteMoto" style="position: absolute;left: 10px;top: 464px;width: 64px;height: auto;"/>
+          </div>
+        </div>
+
       </div>
 
     </div>
-    <script type="module" src="/script.js"></script>
+    <script type="module" src="./script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
