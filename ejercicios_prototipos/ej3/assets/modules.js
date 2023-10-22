@@ -12,6 +12,7 @@ export class VehiculoClass {
     this._velocidad = 0;
   }
   acelerar() {
+    if (this.velocidad > 0)
     this._velocidad += this.velocidad < VehiculoClass.MAXVEL ? 1 : 0;
   }
 
@@ -59,6 +60,7 @@ export function VehiculoFunction(marca, modelo, año) {
   this._velocidad = 0;
 
   this.acelerar = function () {
+    if (this.velocidad > 0)
     this._velocidad += this.velocidad < VehiculoFunction.MAXVEL ? 1 : 0;
   };
 
@@ -90,13 +92,14 @@ export function VehiculoFunction(marca, modelo, año) {
           : VehiculoFunction.MAXVEL;
     },
   });
-  Object.defineProperty(VehiculoFunction, "MAXVEL", {
-    get: function () {
-      const _MAXVEL = 30;
-      return _MAXVEL;
-    },
-  });
 }
+
+Object.defineProperty(VehiculoFunction, "MAXVEL", {
+  get: function () {
+    const _MAXVEL = 30;
+    return _MAXVEL;
+  },
+});
 
 export function CocheFunction(marca, modelo, año) {
   this.__proto__ = new VehiculoFunction(marca, modelo, año);

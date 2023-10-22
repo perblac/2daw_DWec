@@ -19,14 +19,17 @@
               <label for="modeloCoche" class="form-class mb-3">Modelo</label>
               <input type="text" class="form-class" id="modeloCoche"><br>
               <label for="añoCoche" class="form-class mb-3">Año</label>
-              <input type="number" class="form-class" id="añoCoche" min="1900">
+              <input type="number" class="form-class" id="añoCoche" min="1900"><br>
+              <button class="btn btn-primary mx-3 mb-3" id="crearCoche">Crear Coche</button>
             </form>
-            <button class="btn btn-primary mx-3 mb-3" id="crearCoche">Crear Coche</button>
-            <div class="alert alert-danger" style="display: inline;" id="errorCoche">Error al crear el Coche</div>
-            <div class="alert alert-success" style="display: inline;" id="exitoCoche">Coche creado</div><br>
-            <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarCoche" disabled>Arrancar</button>
-            <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarCoche" disabled>Acelerar</button>
-            <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarCoche" disabled>Frenar</button>
+            <div class="alert alert-danger" style="display: none;" id="errorCoche">Error al crear el Coche</div>
+            <div class="alert alert-success" style="display: none;" id="exitoCoche">Coche creado</div><br>
+            <p id="boxCoche" style="text-align: center;"></p>
+            <div id="botonesCoche" style="display: none;">
+              <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarCoche">Arrancar</button>
+              <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarCoche">Acelerar</button>
+              <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarCoche">Frenar</button>
+            </div>
           </div>
           <div class="col-md-6">
             <form action="" class="border px-3 mx-3 mb-3" id="motoFrm">
@@ -38,17 +41,22 @@
               <input type="number" class="form-class" id="añoMoto" min="1900">
             </form>
             <button class="btn btn-primary mx-3 mb-3" id="crearMoto">Crear Moto</button>
-            <div class="alert alert-danger" style="display: inline;" id="errorMoto">Error al crear la Moto</div>
-            <div class="alert alert-success" style="display: inline;" id="exitoMoto">Coche creado</div><br>
-            <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarMoto" disabled>Arrancar</button>
-            <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarMoto" disabled>Acelerar</button>
-            <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarMoto" disabled>Frenar</button>
+            <div class="alert alert-danger" style="display: none;" id="errorMoto">Error al crear la Moto</div>
+            <div class="alert alert-success" style="display: none;" id="exitoMoto">Moto creada</div><br>
+            <p id="boxMoto" style="text-align: center;"></p>
+            <div id="botonesMoto" style="display: none;">
+              <button class="btn btn-warning mx-3 mb-3" style="display: inline-block;" id="arrancarMoto">Arrancar</button>
+              <button class="btn btn-success mx-3 mb-3" style="display: inline-block;" id="acelerarMoto">Acelerar</button>
+              <button class="btn btn-danger mx-3 mb-3" style="display: inline-block;" id="frenarMoto">Frenar</button>
+            </div>
           </div>
-          <div>
-            <img src="./car.png" alt="car" id="spriteCoche" style="position: absolute;left: 10px;top: 400px;width: 64px;height: auto;"/>
+          <div id="pistaCoche">
+            
+            <img src="./car.png" alt="car" id="spriteCoche" style="position: relative;left: 10px;top: 0px;width: 64px;height: auto; display: none;"/>
           </div>
-          <div>
-            <img src="./moto.png" alt="moto" id="spriteMoto" style="position: absolute;left: 10px;top: 464px;width: 64px;height: auto;"/>
+          <div id="pistaMoto">
+            
+            <img src="./moto.png" alt="moto" id="spriteMoto" style="position: relative;left: 10px;top: 0px;width: 64px;height: auto; display: none;"/>
           </div>
         </div>
 
