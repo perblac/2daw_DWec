@@ -1,8 +1,8 @@
 /* -------------------------------- importar -------------------------------- */
 import {
-  VehiculoFunction as Vehiculo,
-  CocheFunction as Coche,
-  MotoFunction as Moto,
+  VehiculoClass as Vehiculo,
+  CocheClass as Coche,
+  MotoClass as Moto,
 } from "./assets/modules";
 /* ---------------------------- definir variables --------------------------- */
 const marcaCocheFrm = document.getElementById("marcaCoche");
@@ -40,7 +40,7 @@ let spriteCoche = document.getElementById("spriteCoche"),
 // coche.frenar();
 // console.log('coche frena, vel =', coche.velocidad);
 // console.log(coche.MAXVEL, coche.constructor.MAXVEL);
-// console.log(coche instanceof Vehiculo);
+// console.log(coche instanceof Coche);
 
 function handlerCreateCar(e) {
   e.preventDefault();
@@ -172,11 +172,11 @@ function handlerAccelMoto() {
 
 //------- Loop de animación
 function draw() {
-  if (coche instanceof Vehiculo) {
+  if (coche instanceof Coche) {
     spriteCoche.style.left = coche.pos + "px";
     spriteCoche.src = coche.dir < 0 ? "./car2.png" : "./car.png";
   }
-  if (moto instanceof Vehiculo) {
+  if (moto instanceof Moto) {
     spriteMoto.style.left = moto.pos + "px";
     spriteMoto.src = moto.dir < 0 ? "./moto2.png" : "./moto.png";
   }

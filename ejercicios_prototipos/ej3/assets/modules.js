@@ -122,3 +122,6 @@ export function MotoFunction(marca, modelo, año) {
 }
 
 // usando objeto literal:
+const VehiculoLitera = {
+  
+}

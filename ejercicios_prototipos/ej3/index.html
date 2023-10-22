@@ -38,9 +38,9 @@
               <label for="modeloMoto" class="form-class mb-3">Modelo</label>
               <input type="text" class="form-class" id="modeloMoto"><br>
               <label for="añoMoto" class="form-class mb-3">Año</label>
-              <input type="number" class="form-class" id="añoMoto" min="1900">
+              <input type="number" class="form-class" id="añoMoto" min="1900"><br>
+              <button class="btn btn-primary mx-3 mb-3" id="crearMoto">Crear Moto</button>
             </form>
-            <button class="btn btn-primary mx-3 mb-3" id="crearMoto">Crear Moto</button>
             <div class="alert alert-danger" style="display: none;" id="errorMoto">Error al crear la Moto</div>
             <div class="alert alert-success" style="display: none;" id="exitoMoto">Moto creada</div><br>
             <p id="boxMoto" style="text-align: center;"></p>
@@ -52,18 +52,20 @@
           </div>
           <div id="pistaCoche">
             
-            <img src="./car.png" alt="car" id="spriteCoche" style="position: relative;left: 10px;top: 0px;width: 64px;height: auto; display: none;"/>
+            <img src="./car.png" alt="car" id="spriteCoche" style="position: relative;left: 10px;top: 0px;width: 64px;height: auto; margin-bottom: -5px; display: none;"/>
           </div>
           <div id="pistaMoto">
             
-            <img src="./moto.png" alt="moto" id="spriteMoto" style="position: relative;left: 10px;top: 0px;width: 64px;height: auto; display: none;"/>
+            <img src="./moto.png" alt="moto" id="spriteMoto" style="position: relative;left: 10px;top: 0px;width: 40px;height: auto; margin-bottom: -2px; display: none;"/>
           </div>
         </div>
 
       </div>
 
     </div>
-    <script type="module" src="./script.js"></script>
+    <!-- con Function constructor -->
+    <!-- <script type="module" src="./script.js"></script> -->
+    <script type="module" src="./script2.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
