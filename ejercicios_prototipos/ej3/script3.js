@@ -60,8 +60,17 @@ function handlerCreateCar(e) {
       errorCoche.style.display = "none";
     }, 5000);
   } else {
+    // coche = Object.create(Coche, {
+    //   marca: marcaCocheFrm.value,
+    //   modelo: modeloCocheFrm.value,
+    //   año: parseInt(añoCocheFrm.value),
+    //   pos: 10,
+    //   vel: 0,
+    //   dir: 1,
+    // });
     coche = Object.create(Coche);
     coche.marca = marcaCocheFrm.value;
+    coche.año = parseInt(añoCocheFrm.value);
     coche.modelo = modeloCocheFrm.value;
     coche.año = parseInt(añoCocheFrm.value);
     coche.pos = 10;
@@ -123,13 +132,15 @@ function handlerCreateMoto(e) {
       errorMoto.style.display = "none";
     }, 5000);
   } else {
-    moto = Object.create(Moto);
-    moto.marca = marcaMotoFrm.value;
-    moto.modelo = modeloMotoFrm.value;
-    moto.año = parseInt(añoMotoFrm.value);
-    moto.pos = 10;
-    moto.vel = 0;
-    moto.dir = 1;
+    // pasando variables por el Object.create() :
+    moto = Object.create(Moto, {
+    marca: {value: marcaMotoFrm.value},
+    modelo: {value: modeloMotoFrm.value},
+    año: {value: parseInt(añoMotoFrm.value)},
+    pos: {writable: true,value: 10},
+    vel: {writable: true,value: 0},
+    dir: {writable: true,value: 1},
+    });
 
     document.getElementById("botonesMoto").style.display = "block";
     document.getElementById("motoFrm").style.display = "none";

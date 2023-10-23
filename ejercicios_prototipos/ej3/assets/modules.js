@@ -13,7 +13,7 @@ export class VehiculoClass {
   }
   acelerar() {
     if (this.velocidad > 0)
-    this._velocidad += this.velocidad < VehiculoClass.MAXVEL ? 1 : 0;
+      this._velocidad += this.velocidad < VehiculoClass.MAXVEL ? 1 : 0;
   }
 
   get marca() {
@@ -35,6 +35,9 @@ export class VehiculoClass {
 }
 
 export class CocheClass extends VehiculoClass {
+  constructor(marca, modelo, año) {
+    super(marca, modelo, año);
+  }
   arrancar() {
     this.velocidad = 1;
   }
@@ -44,6 +47,9 @@ export class CocheClass extends VehiculoClass {
 }
 
 export class MotoClass extends VehiculoClass {
+  constructor(marca, modelo, año) {
+    super(marca, modelo, año);
+  }
   arrancar() {
     this.velocidad = 1;
   }
@@ -61,7 +67,7 @@ export function VehiculoFunction(marca, modelo, año) {
 
   this.acelerar = function () {
     if (this.velocidad > 0)
-    this._velocidad += this.velocidad < VehiculoFunction.MAXVEL ? 1 : 0;
+      this._velocidad += this.velocidad < VehiculoFunction.MAXVEL ? 1 : 0;
   };
 
   Object.defineProperty(this, "marca", {
@@ -145,13 +151,13 @@ Object.setPrototypeOf(MotoFunction.prototype, VehiculoFunction.prototype);
 
 // usando objeto literal:
 export const VehiculoLiteral = {
-  _marca: '',
-  _modelo: '',
+  _marca: "",
+  _modelo: "",
   _año: 0,
   _velocidad: 0,
-  acelerar: function() {
+  acelerar: function () {
     if (this.velocidad > 0)
-    this._velocidad += this.velocidad < VehiculoLiteral.MAXVEL ? 1 : 0;
+      this._velocidad += this.velocidad < VehiculoLiteral.MAXVEL ? 1 : 0;
   },
   get marca() {
     return this._marca;
@@ -175,37 +181,42 @@ export const VehiculoLiteral = {
     return this._velocidad;
   },
   set velocidad(velocidad) {
-    this._velocidad = velocidad <= VehiculoLiteral.MAXVEL ? (velocidad >= 0 ? velocidad : 0) : VehiculoLiteral.MAXVEL;
-  }
-}
+    this._velocidad =
+      velocidad <= VehiculoLiteral.MAXVEL
+        ? velocidad >= 0
+          ? velocidad
+          : 0
+        : VehiculoLiteral.MAXVEL;
+  },
+};
 
 Object.defineProperty(VehiculoLiteral, "MAXVEL", {
   get: function () {
     const _MAXVEL = 30;
     return _MAXVEL;
   },
-})
+});
 
 export const CocheLiteral = {
   __proto__: VehiculoLiteral,
-  arrancar: function() {
+  arrancar: function () {
     this.velocidad = 1;
   },
-  frenar: function() {
+  frenar: function () {
     this.velocidad = 0;
-  }
-}
+  },
+};
 
 Object.setPrototypeOf(CocheLiteral, VehiculoLiteral);
 
 export const MotoLiteral = {
   __proto__: VehiculoLiteral,
-  arrancar: function() {
+  arrancar: function () {
     this.velocidad = 1;
   },
-  frenar: function() {
+  frenar: function () {
     this.velocidad = 0;
-  }
-}
+  },
+};
 
 Object.setPrototypeOf(MotoLiteral, VehiculoLiteral);
