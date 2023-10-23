@@ -3,7 +3,7 @@ import {
   VehiculoFunction as Vehiculo,
   CocheFunction as Coche,
   MotoFunction as Moto,
-} from "./assets/modules";
+} from "./assets/modules.js";
 /* ---------------------------- definir variables --------------------------- */
 const marcaCocheFrm = document.getElementById("marcaCoche");
 const modeloCocheFrm = document.getElementById("modeloCoche");

@@ -3,7 +3,7 @@ import {
   VehiculoClass as Vehiculo,
   CocheClass as Coche,
   MotoClass as Moto,
-} from "./assets/modules";
+} from "./assets/modules.js";
 /* ---------------------------- definir variables --------------------------- */
 const marcaCocheFrm = document.getElementById("marcaCoche");
 const modeloCocheFrm = document.getElementById("modeloCoche");
