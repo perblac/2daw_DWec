@@ -1,8 +1,8 @@
 /* -------------------------------- importar -------------------------------- */
 import {
-  VehiculoFunction as Vehiculo,
-  CocheFunction as Coche,
-  MotoFunction as Moto,
+  VehiculoLiteral as Vehiculo,
+  CocheLiteral as Coche,
+  MotoLiteral as Moto,
 } from "./assets/modules";
 /* ---------------------------- definir variables --------------------------- */
 const marcaCocheFrm = document.getElementById("marcaCoche");
@@ -26,7 +26,10 @@ let spriteCoche = document.getElementById("spriteCoche"),
 
 /* -------------------------------- funciones ------------------------------- */
 // test objeto coche
-// const coche = new Coche('seat', 'leon', 2005);
+// const coche = Object.create(Coche);
+// coche.marca = 'seat';
+// coche.modelo = 'toledo';
+// coche.año = 2003;
 // console.log(coche);
 // console.log('coche parado, vel =',coche.velocidad);
 // coche.arrancar();
@@ -40,7 +43,7 @@ let spriteCoche = document.getElementById("spriteCoche"),
 // coche.frenar();
 // console.log('coche frena, vel =', coche.velocidad);
 // console.log(coche.MAXVEL, coche.constructor.MAXVEL);
-// console.log(coche instanceof Vehiculo);
+// console.log(Coche.isPrototypeOf(coche));
 
 function handlerCreateCar(e) {
   e.preventDefault();
@@ -57,11 +60,10 @@ function handlerCreateCar(e) {
       errorCoche.style.display = "none";
     }, 5000);
   } else {
-    coche = new Coche(
-      marcaCocheFrm.value,
-      modeloCocheFrm.value,
-      parseInt(añoCocheFrm.value)
-    );
+    coche = Object.create(Coche);
+    coche.marca = marcaCocheFrm.value;
+    coche.modelo = modeloCocheFrm.value;
+    coche.año = parseInt(añoCocheFrm.value);
     coche.pos = 10;
     coche.vel = 0;
     coche.dir = 1;
@@ -121,11 +123,10 @@ function handlerCreateMoto(e) {
       errorMoto.style.display = "none";
     }, 5000);
   } else {
-    moto = new Moto(
-      marcaMotoFrm.value,
-      modeloMotoFrm.value,
-      parseInt(añoMotoFrm.value)
-    );
+    moto = Object.create(Moto);
+    moto.marca = marcaMotoFrm.value;
+    moto.modelo = modeloMotoFrm.value;
+    moto.año = parseInt(añoMotoFrm.value);
     moto.pos = 10;
     moto.vel = 0;
     moto.dir = 1;
@@ -172,17 +173,17 @@ function handlerAccelMoto() {
 
 //------- Loop de animación
 function draw() {
-  if (coche instanceof Coche) {
+  if (Coche.isPrototypeOf(coche)) {
     spriteCoche.style.left = coche.pos + "px";
     spriteCoche.src = coche.dir < 0 ? "./car2.png" : "./car.png";
   }
-  if (moto instanceof Moto) {
+  if (Moto.isPrototypeOf(moto)) {
     spriteMoto.style.left = moto.pos + "px";
     spriteMoto.src = moto.dir < 0 ? "./moto2.png" : "./moto.png";
   }
 }
 function update(elem) {
-  if (elem instanceof Vehiculo) {
+  if (Vehiculo.isPrototypeOf(elem)) {
     elem.pos += elem.vel;
     if (elem.pos >= limit) elem.dir = -1;
     if (elem.pos < 0) elem.dir = 1;
