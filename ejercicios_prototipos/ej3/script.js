@@ -181,6 +181,7 @@ function draw() {
     spriteMoto.src = moto.dir < 0 ? "./moto2.png" : "./moto.png";
   }
 }
+
 function update(elem) {
   if (elem instanceof Vehiculo) {
     elem.pos += elem.vel;

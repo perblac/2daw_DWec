@@ -5,10 +5,11 @@
  */
 
 /**
+ * Función que devuelve un nuevo objeto con las propiedades presentes en obj
  * 
- * @param object obj 
- * @param array propiedades 
- * @returns object
+ * @param {Object} obj 
+ * @param {Array} propiedades 
+ * @returns {Object}
  */
 const extraerPropiedades = (obj, propiedades) => {
     const resultado = {};
@@ -17,3 +18,12 @@ const extraerPropiedades = (obj, propiedades) => {
     }
     return resultado;
 }
+
+/* con reduce()
+const extraerPropiedades = (obj, propiedades) => {
+    return propiedades.reduce((acum, propiedad) => {
+    (propiedad in obj)?acum[propiedad] = obj[propiedad]:'';
+    return acum;
+}, {});
+}
+*/

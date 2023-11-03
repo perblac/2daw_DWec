@@ -198,7 +198,7 @@ Object.defineProperty(VehiculoLiteral, "MAXVEL", {
 });
 
 export const CocheLiteral = {
-  __proto__: VehiculoLiteral,
+  // __proto__: VehiculoLiteral,
   arrancar: function () {
     this.velocidad = 1;
   },
@@ -210,7 +210,7 @@ export const CocheLiteral = {
 Object.setPrototypeOf(CocheLiteral, VehiculoLiteral);
 
 export const MotoLiteral = {
-  __proto__: VehiculoLiteral,
+  // __proto__: VehiculoLiteral,
   arrancar: function () {
     this.velocidad = 1;
   },
