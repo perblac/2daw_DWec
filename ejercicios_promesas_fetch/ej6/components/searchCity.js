@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { showCard } from "./showCard";
 import { showError } from "./showError";
 
@@ -17,4 +15,3 @@ export function searchCity(city) {
     .then((data) => showCard(data))
     .catch((error) => showError(error));
 }
->>>>>>> Stashed changes

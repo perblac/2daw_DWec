@@ -16,9 +16,13 @@
 import "./style.css";
 import javascriptLogo from "./javascript.svg";
 import viteLogo from "/vite.svg";
+import { searchCity } from './components/searchCity.js';
+import { showError } from "./components/showError.js";
+import { showCard } from "./components/showCard.js";
 
-const searchInput = document.querySelector('#search-input');
-const searchButton = document.querySelector('#search-btn');
+fillApp();
+const searchInput = document.querySelector("#search-input");
+const searchButton = document.querySelector("#search-btn");
 
 function fillApp() {
   document.querySelector("#app").innerHTML = `
@@ -30,9 +34,9 @@ function fillApp() {
         <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
       </a>
       <h1>Hello Vite!</h1>
-      <div class="card">
-        <input type="text" id="search-input" class="form-control">
-        <button id="search-btn" class="btn btn-primary">Buscar</button>
+      <input type="text" id="search-input" class="form-control col-3">
+      <button id="search-btn" class="btn btn-primary">Buscar</button>
+      <div class="container">
       </div>
     </div>
   `;
@@ -40,13 +44,16 @@ function fillApp() {
 
 function searchHandler(e) {
   let city = searchInput.value;
-  searchCity(city)
-  .then((data) => showCard(data))
-  .catch((error) => showError(error));
+  searchCity(city);
 }
 
 function init() {
-  fillApp();
+  searchButton.addEventListener("click", searchHandler);
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key == 'Enter') {
+      searchHandler(e);
+    }
+  })
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);

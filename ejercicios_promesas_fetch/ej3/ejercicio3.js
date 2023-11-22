@@ -2,7 +2,7 @@
 
 // Crea una función que realice una animación de desvanecimiento de un elemento HTML. La función debe aceptar el elemento y la duración de la animación, y devolver una promesa que se resuelva cuando la animación haya terminado.
 
-const segundos = 10;
+const segundos = 2;
 document.body.style.background = 'url("bg.jpg")';
 const contenedor = document.querySelector(".container");
 
@@ -11,7 +11,6 @@ function desvanecer(elemento, segundos) {
         try {
             elemento.style.transitionDuration = `${segundos}s`;
             elemento.style.transitionProperty = 'opacity';
-            // elemento.style.opacity = 0;
             setTimeout(()=>{
                 elemento.style.opacity = 0;
             }, 1);
@@ -35,7 +34,7 @@ function init() {
     cajaRoja.style.opacity = 1;
     contenedor.appendChild(cajaRoja);
 
-    desvanecer(cajaRoja,10)
+    desvanecer(cajaRoja,segundos)
     .then((respuesta) => contenedor.innerHTML = `<h1>${respuesta}</h1>`)
     .catch((error) => console.error(error));
 }
