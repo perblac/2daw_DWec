@@ -2,7 +2,8 @@ import { showCard } from "./showCard";
 import { showError } from "./showError";
 
 export function searchCity(city) {
-  const APIKEY = "";
+  const APIKEY = `${import.meta.env.VITE_API_KEY}`;
+  console.log(APIKEY);
   const GEO_URL_ENDPOINT = "http://api.openweathermap.org/geo/1.0/direct";
   return fetch(GEO_URL_ENDPOINT + "?q=" + city + "&limit=100&appid=" + APIKEY)
     .then((response) => response.json())

@@ -18,7 +18,7 @@ export async function showCard(data) {
   const body = document.createElement("div");
   body.className = "card-body";
   body.innerHTML = '<h2>' + weather.weather[0].description + '</h2>'
-    + '<br>' + 'Temeperatura: ' + weather.main.temp + ' ºC'
+    + '<br>' + 'Temperatura: ' + weather.main.temp + ' ºC'
     + '<br>' + 'Max: ' + weather.main.temp_max + ' ºC'
     + ' Min: ' + weather.main.temp_min + ' ºC'
     + '<br>' + 'Sensación térmica: ' + weather.main.feels_like + ' ºC'
