@@ -1,50 +1,111 @@
 import { getWeather } from "./getWeather.js";
 
-export async function showCard(data) {  
+export async function showCard(data) {
   const cardContainer = document.querySelector(".container");
-  cardContainer.textContent = '';
+  cardContainer.textContent = "";
   console.log(data);
   for (let ciudad of data) {
-  const cardElement = document.createElement('div');
-  cardElement.className = "card";
-  let weather = await getWeather(ciudad.lat, ciudad.lon)
-  .then((data) => data)
-  .catch((error) => showError(error));
-  console.log(weather);
-  const header = document.createElement("div");
-  header.className = "card-header";
-  const name = (!ciudad.local_names)?ciudad.name:(!ciudad.local_names.es)?ciudad.name:ciudad.local_names.es;
-  header.innerHTML = name + " (" + obtenerNombrePais(ciudad.country) + ")";
-  const body = document.createElement("div");
-  body.className = "card-body";
-  body.innerHTML = '<h2>' + weather.weather[0].description + '</h2>'
-    + '<br>' + 'Temperatura: ' + weather.main.temp + ' ºC'
-    + '<br>' + 'Max: ' + weather.main.temp_max + ' ºC'
-    + ' Min: ' + weather.main.temp_min + ' ºC'
-    + '<br>' + 'Sensación térmica: ' + weather.main.feels_like + ' ºC'
-    + '<br>' + 'Humedad: ' + weather.main.humidity + ' %'
-    + '<br>' + 'Presión: ' + weather.main.pressure + ' hPa'
-    + '<br>' + 'Porcentaje de nubes: ' + weather.clouds.all + ' %';
+    const cardElement = document.createElement("div");
+    cardElement.className = "card m-1";
+    cardElement.style.maxWidth = "fit-content";
+    let weather = await getWeather(ciudad.lat, ciudad.lon)
+      .then((data) => data)
+      .catch((error) => showError(error));
+    console.log(weather);
+    const header = document.createElement("div");
+    header.className = "card-header";
+    const name = !ciudad.local_names
+      ? ciudad.name
+      : !ciudad.local_names.es
+      ? ciudad.name
+      : ciudad.local_names.es;
+    header.innerHTML = name + " (" + obtenerNombrePais(ciudad.country) + ")";
+    const body = document.createElement("div");
+    body.className = "card-body";
+    body.innerHTML =
+      "<h2>" +
+      weather.weather[0].description +
+      "</h2>" +
+      "<br>" +
+      "Temperatura: " +
+      weather.main.temp +
+      " ºC" +
+      "<br>" +
+      "Max: " +
+      weather.main.temp_max +
+      " ºC" +
+      " Min: " +
+      weather.main.temp_min +
+      " ºC" +
+      "<br>" +
+      "Sensación térmica: " +
+      weather.main.feels_like +
+      " ºC" +
+      "<br>" +
+      "Humedad: " +
+      weather.main.humidity +
+      " %" +
+      "<br>" +
+      "Presión: " +
+      weather.main.pressure +
+      " hPa" +
+      "<br>" +
+      "Porcentaje de nubes: " +
+      weather.clouds.all +
+      " %";
     if (weather.rain) {
-      if (weather.rain['1h']) {
-        body.innerHTML += '<br>' + 'Lluvia en la última hora: ' + weather.rain['1h'] + ' mm';
+      if (weather.rain["1h"]) {
+        body.innerHTML +=
+          "<br>" + "Lluvia en la última hora: " + weather.rain["1h"] + " mm";
       }
     }
     if (weather.snow) {
-      if (weather.snow['1h']) {
-        body.innerHTML += '<br>' + 'Nieve en la última hora: ' + weather.snow['1h'] + ' mm';
+      if (weather.snow["1h"]) {
+        body.innerHTML +=
+          "<br>" + "Nieve en la última hora: " + weather.snow["1h"] + " mm";
       }
     }
-    body.innerHTML += '<br>' + 'Visibilidad: ' + (weather.visibility>1000?(weather.visibility/1000).toFixed(2) + ' km': weather.visibility + ' m');
-    body.innerHTML += '<br>' + 'Viento: ' + weather.wind.speed + 'm/s' + ' Dirección: ' + weather.wind.deg + 'º';
-  const footer = document.createElement("div");
-  footer.className = "card-header";
-  footer.innerHTML = 'Lat: ' + ciudad.lat + ' Lon: ' + ciudad.lon;
-  cardElement.appendChild(getImage(weather.weather[0].icon));
-  cardElement.appendChild(header);
-  cardElement.appendChild(body);
-  cardElement.appendChild(footer);
-  cardContainer.appendChild(cardElement);
+    body.innerHTML +=
+      "<br>" +
+      "Visibilidad: " +
+      (weather.visibility > 1000
+        ? (weather.visibility / 1000).toFixed(2) + " km"
+        : weather.visibility + " m");
+    body.innerHTML +=
+      "<br>" +
+      "Viento: " +
+      weather.wind.speed +
+      "m/s" +
+      " Dirección: " +
+      weather.wind.deg +
+      "º";
+    const footer = document.createElement("div");
+    footer.className = "card-header";
+    footer.innerHTML = "Lat: " + ciudad.lat + " Lon: " + ciudad.lon;
+
+    cardElement.appendChild(getImage(weather.weather[0].icon));
+    if (weather.weather[0].description !='cielo claro') {
+      /* ---------------------------------- nube ---------------------------------- */
+      const nubeOverlay = document.createElement("div");
+      nubeOverlay.className = "card-img-overlay";
+      const delay = (Math.random()*150)/10;
+      console.log(delay);
+      nubeOverlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg2" viewBox="100 100 300 300" height="256" width="256">
+                                <path id="nube"
+                                  d="m 185,132 c 0,16 -23,26 -56,26 -32,0 -59,-13 -59,-29 0,-16 34,-47 56,-26 9,-11 37,-3 35,12 8,-7 23,8 23,16 z"
+                                  style="opacity:.5;fill:#cbffff;fill-opacity:.5;">
+                                  <animateMotion dur="15s" repeatCount="indefinite"
+                                    path="m 60,125 c 20,-15 200,-50 125,15 -50,50 -100,-50 -100,-10 0,50 -50,20 -50,5 z"
+                                    begin="-${delay}s"/>
+                                </path>
+                              </svg>`;
+      /* -------------------------------------------------------------------------- */
+      cardElement.appendChild(nubeOverlay); // nube
+    }
+    cardElement.appendChild(header);
+    cardElement.appendChild(body);
+    cardElement.appendChild(footer);
+    cardContainer.appendChild(cardElement);
   }
 }
 
@@ -303,9 +364,9 @@ function obtenerNombrePais(codigoPais) {
 }
 
 function getImage(icon) {
-    const cardImage = document.createElement('img');
-    cardImage.className = 'card-img-top mx-auto';
-    cardImage.style.width = '300px';
-    cardImage.src = 'assets/images/' + icon + '.jpg';
-    return cardImage;
+  const cardImage = document.createElement("img");
+  cardImage.className = "card-img-top mx-auto";
+  cardImage.style.maxWidth = "300px";
+  cardImage.src = "assets/images/" + icon + ".jpg";
+  return cardImage;
 }

@@ -16,9 +16,9 @@
 import "./style.css";
 import javascriptLogo from "./javascript.svg";
 import viteLogo from "/vite.svg";
-import { searchCity } from './components/searchCity.js';
-import { showError } from "./components/showError.js";
-import { showCard } from "./components/showCard.js";
+import { searchCity } from "./components/searchCity.js";
+// import { showError } from "./components/showError.js";
+// import { showCard } from "./components/showCard.js";
 
 fillApp();
 const searchInput = document.querySelector("#search-input");
@@ -27,16 +27,10 @@ const searchButton = document.querySelector("#search-btn");
 function fillApp() {
   document.querySelector("#app").innerHTML = `
     <div>
-      <a href="https://vitejs.dev" target="_blank">
-        <img src="${viteLogo}" class="logo" alt="Vite logo" />
-      </a>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-        <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-      </a>
-      <h1>Hello Vite!</h1>
+      <h1>El tiempo en ciudades</h1>
       <input type="text" id="search-input" class="form-control col-3">
-      <button id="search-btn" class="btn btn-primary">Buscar</button>
-      <div class="container">
+      <button id="search-btn" class="btn btn-primary">Buscar ciudad</button>
+      <div class="container col-12 row">
       </div>
     </div>
   `;
@@ -49,11 +43,11 @@ function searchHandler(e) {
 
 function init() {
   searchButton.addEventListener("click", searchHandler);
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key == 'Enter') {
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
       searchHandler(e);
     }
-  })
+  });
 }
 
 document.addEventListener("DOMContentLoaded", init);
